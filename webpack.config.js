@@ -22,7 +22,8 @@ module.exports = {
 
     },
 
-    mode: "production", // 告诉webpack使用production模式的内置优化,
+    // mode: "production", // 告诉webpack使用production模式的内置优化,
+    mode: "development", // 告诉webpack使用production模式的内置优化,
 
     module: {
 

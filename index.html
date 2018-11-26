@@ -13,14 +13,18 @@
         <ul>
             <li></li>
         </ul>
-        {{message}}
+        {{a.text}}
     </div>
 <script src="./dist/Mvvmy.js"></script>
 <script>
     let vm = new Mvvmy({
         el:'#app',
         data:{
-            message:'hello'
+            message:'hello',
+            a:{
+                text:'2332'
+            }
+            
         }
     })
 </script>
