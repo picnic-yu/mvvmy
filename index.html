@@ -7,6 +7,22 @@
   <title>mvvmy</title>
 </head>
 <body>
-  <script src="./dist/mvvmy.js"></script>
+    <div id="app">
+        <input type="text" v-model='message'>
+        <div></div>
+        <ul>
+            <li></li>
+        </ul>
+        {{message}}
+    </div>
+<script src="./dist/Mvvmy.js"></script>
+<script>
+    let vm = new Mvvmy({
+        el:'#app',
+        data:{
+            message:'hello'
+        }
+    })
+</script>
 </body>
 </html>

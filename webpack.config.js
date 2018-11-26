@@ -10,9 +10,9 @@ module.exports = {
 
         path: path.resolve(__dirname, 'dist'),
 
-        filename: 'mvvmy.js', //打包之后生成的文件名，可以随意写。
+        filename: 'Mvvmy.js', //打包之后生成的文件名，可以随意写。
 
-        library: 'mvvmy', // 指定类库名,主要用于直接引用的方式(比如使用script 标签)
+        library: 'Mvvmy', // 指定类库名,主要用于直接引用的方式(比如使用script 标签)
 
         libraryExport: "default", // 对外暴露default属性，就可以直接调用default里的属性
 
