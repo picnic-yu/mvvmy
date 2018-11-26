@@ -1,3 +1,6 @@
+
+import Watcher from './Watcher'
+import Dep from './Dep'
 // 数据劫持
 export default class Observer{
     constructor(data){
@@ -18,10 +21,14 @@ export default class Observer{
     // 定义响应式
     defineReactive(obj,key,value){
         let self = this;
+        // 每个变化得数据 都会对应一个数组，
+        // 这个数组是存放所有更新得操作
+        let dep = new Dep();
         Object.defineProperty(obj,key,{
             enumerable:true,
             configurable:true,
             get(){
+                Dep.target && dep.addSub(Dep.target);
                 return value
             },
             set(newValue){
@@ -30,9 +37,11 @@ export default class Observer{
                     // 这里this不是实例
                     self.observer(newValue);//如果是对象继续劫持  设置新改变得值为对象时候重新劫持
                     value = newValue;
+                    dep.notify();//通知所有人数据更新了
                 }
             }
         });
     }
    
 }
+

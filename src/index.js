@@ -1,5 +1,6 @@
 import Compile from './Compile.js'
 import Observer from './Observer'
+import Watcher from './Watcher'
 class Mvvmy{
     constructor(options){
         this.$el = options.el;
