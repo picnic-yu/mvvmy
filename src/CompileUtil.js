@@ -27,6 +27,16 @@ const  CompileUtil = {
         
         updateFn && updateFn(node,value);
     },
+    setVal(vm,expr,value){
+        expr = expr.split('.');
+        return expr.reduce((prev,next,index) => {
+            if(index === expr.length-1){
+                return prev[next] = value;
+            }
+            return prev[next]
+        },vm.$data)
+
+    },
     // 输入框处理
     model(node,vm,expr){
         let updateFn = this.updater['modelUpdater'];
@@ -35,6 +45,10 @@ const  CompileUtil = {
             // 当值变化后  会调用cb 将新得值传递过来
             updateFn && updateFn(node,this.getVal(vm,expr));
         });
+        node.addEventListener('input',(e) => {
+            let newValue = e.target.value;
+            this.setVal(vm,expr,newValue);
+        })
         updateFn && updateFn(node,this.getVal(vm,expr));
     },
     // 获取编译文本后得结果
