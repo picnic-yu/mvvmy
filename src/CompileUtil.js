@@ -55,7 +55,6 @@ const  CompileUtil = {
     getTextVal(vm,expr){
         let self = this;
         return expr.replace(/\{\{([^}]+)\}\}/g,function(){
-            console.log('ddd',arguments);
             return self.getVal(vm, arguments[1]);
         })
        

@@ -55,7 +55,6 @@ export default class Compile{
         // 正则
         let reg = /\{\{([^}]+)\}\}/g;
         if(reg.test(expr)){
-            console.log(expr)
             //node this.vm.$data  expr
             CompileUtil['text'](node,this.vm,expr);
         }
